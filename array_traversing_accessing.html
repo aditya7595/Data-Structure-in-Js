@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array traversing and accessing</title>
+</head>
+<body>
+    <h1>There are only 10 Elements Exist in Array. Type Index and get the Elements.</h1>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var arr = [];
+            arr = [125,15,45,1,45,46,54,256,145,65];
+            document.getElementById("array").innerText = "The array is "+arr;
+        });
+        function myFunction(){
+            arr = [125,15,45,1,45,46,54,256,145,65];
+            const length = arr.length - 1;
+            var input = document.getElementById('take_input').value;
+            var result = arr[input - 1];
+            if(input > length){
+                alert("This Index not exist in array");
+            }else if(input == ""){
+                document.getElementById("result").innerHTML = "Please enter index value";
+                document.getElementById("result").style.color = "red";
+            }else{
+                document.getElementById("result").innerHTML = "The Element is "+result +" of arr"+"["+input+"]";
+                document.getElementById("result").style.color = "black";
+            }
+        }
+
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <label for="Input">Type Index :
+        <input type="text" id="take_input" onkeypress="return isNumber(event)"></input>
+    </label>
+    <label for="submit">
+        <input type="button" id="submit" value="Submit" onclick="myFunction()">
+    </label>
+    <p id="array"></p>
+    <p id="result"></p>
+</body>
+</html>
