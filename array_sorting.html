@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Sorting</title>
+</head>
+<body>
+    <h1>Click on Sort button to sorting the array.</h1>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var arr = [];
+            arr = [125,15,45,1,54,41,47];
+            document.getElementById("array").innerText = "The array is "+JSON.stringify(arr);
+        });
+        function myFunction(){
+            arr = [125,15,45,1,54,41,47];
+
+            var tempObj = '';
+            for(i=0;i < arr.length;i++){
+                for(j=0; j < arr.length; j++){
+                    if(arr[j] > arr[j+1]){
+                        tempObj = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = tempObj;
+                    }
+                }
+            }
+
+            document.getElementById("result").innerHTML = "The result is "+arr;
+            document.getElementById("result").style.color = "black";
+        }
+
+    </script>
+    <label for="submit">
+        <input type="button" id="submit" value="Sort" onclick="myFunction()">
+    </label>
+    <p id="array"></p>
+    <p id="result"></p>
+</body>
+</html>
