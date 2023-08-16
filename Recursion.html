@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursion</title>
+</head>
+<body>
+    <h1>Enter number for getting Factorial Value.</h1>
+    
+     <label for="Input">Value :
+        <input type="text" id="take_input"></input>
+    </label>
+    <label for="submit">
+        <input type="button" id="submit" onclick="factInput();" value="Submit">
+    </label>
+    <p id="result"></p>
+    <script>
+        
+        var tempObj = 1;
+        function fact(res){
+            if(res > 0){
+                tempObj = tempObj *  res;
+                fact(res - 1);
+            }
+            return tempObj;
+        }
+
+        function factInput(){
+            var res = document.getElementById("take_input").value;
+            tempObj = 1;
+            fact(res);
+            document.getElementById("result").innerHTML = "The output is "+tempObj+"."
+        }
+
+    </script>
+</body>
+</html>
